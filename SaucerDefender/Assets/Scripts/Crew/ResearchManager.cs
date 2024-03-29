@@ -88,6 +88,26 @@ public class ResearchManager : ManagerBehaviour
         storedResearchs.Add(currentResearchType);
         OnResearchCompleted.Fire();
     }
+
+    public bool HasResearchPoint(ResearchType research)
+    {
+        var res = storedResearchs.Find(x => x == research);
+        return res != null;
+    }
+
+    public void SpendResearchPoint(ResearchType research)
+    {
+        var res = storedResearchs.Find(x => x == research);
+        if (res != null)
+        {
+            storedResearchs.Remove(res);
+        }
+    }
+
+    public void ReceiveResearchPoint(ResearchType research)
+    {
+        storedResearchs.Add(research);
+    }
 }
 
 [System.Serializable]
