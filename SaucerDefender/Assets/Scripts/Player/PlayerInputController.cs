@@ -37,11 +37,13 @@ public class PlayerInputController : MonoBehaviour
     private void FireBeam(InputAction.CallbackContext obj)
     {
         beam.Play();
+        movement.SpeedModifier = .5f;
     }
 
     private void StopBeam(InputAction.CallbackContext obj)
     {
         beam.Stop();
+        movement.SpeedModifier = 1f;
     }
 
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RadialMovement : MonoBehaviour
 {
+    [SerializeField] private Transform visual;
     [SerializeField] private float speed;
     [SerializeField] private float maxRadius;
     [SerializeField] private Vector2 maxAngle;
@@ -12,6 +13,7 @@ public class RadialMovement : MonoBehaviour
     private float _angle;
 
     public bool Frozen { get; set; } = true;
+    public float SpeedModifier { get; set; } = 1;
     public float CurrentAngle
     {
         get => _angle;
@@ -47,7 +49,12 @@ public class RadialMovement : MonoBehaviour
 
     public void Move(float direction)
     {
-        CurrentAngle += direction * speed;
+        CurrentAngle += direction * speed * SpeedModifier;
+        if (visual != null)
+        {
+            var def = visual.localScale.y;
+            visual.localScale = new Vector3(Mathf.Sign(-direction) * def, def, def);
+        }
     }
 
     public void SetAngle(float angle)

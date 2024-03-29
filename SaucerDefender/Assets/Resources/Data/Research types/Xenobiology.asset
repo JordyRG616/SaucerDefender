@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Xenobiology
   m_EditorClassIdentifier: 
   requiredAmount: 100
-  icon: {fileID: 0}
+  icon: {fileID: 1350525114, guid: f7d07f32486ea3145b362ef60e2afd97, type: 3}

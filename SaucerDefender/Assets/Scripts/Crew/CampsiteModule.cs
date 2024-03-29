@@ -7,12 +7,22 @@ public class CampsiteModule : MonoBehaviour
     [Header("Signals")]
     public Signal OnResearchSiteReached = new Signal();
 
-    private HealthModule healthModule;
+    [SerializeField] private Animator animator;
+
+    public int EnemiesInRange => coll.GetContacts(contacts);
+
+    private ContactPoint2D[] contacts = new ContactPoint2D[99];
     private AiMovementController movementController;
+    private HealthModule healthModule;
+    private Collider2D coll;
 
 
     private void Awake()
     {
+        OnResearchSiteReached += SetIdleState;
+
+        coll = GetComponent<Collider2D>();
+
         healthModule = GetComponent<HealthModule>();
         movementController = GetComponent<AiMovementController>();
         movementController.OnTargetReached += OnResearchSiteReached.Fire;
@@ -32,5 +42,11 @@ public class CampsiteModule : MonoBehaviour
     public void SetSiteLocation(float location)
     {
         movementController.SetTarget(location);
+        animator.SetBool("Moving", true);
+    }
+
+    private void SetIdleState()
+    {
+        animator.SetBool("Moving", false);
     }
 }

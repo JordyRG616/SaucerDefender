@@ -12,17 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353f0af6620265845bdff4c474737f83, type: 3}
   m_Name: A floresta de vidro
   m_EditorClassIdentifier: 
-  eventDescription: "teste test sete spasd pasd af a\xB4spo aof aps  ajsf aps fakjs
-    aps fasfo a sfikoais fa.s fa sf as fap sf asfa sa"
+  queueIcon: {fileID: 21300000, guid: 3ec54b6112e76d4488b2eab644873957, type: 3}
+  eventDescription: "\"O universo \xE9 um artista que n\xE3o decepciona\", Jal'anni
+    pensou, enquanto o time adentrava a floresta. As \xE1rvores ao seu redor eram
+    antigas, seu porte atestava sua idade. Suas folhas, notou, eram transparentes
+    como vidro, em forma de prisma, que dispersavam a luz do sol e banhavam a floresta
+    em um arco-\xEDris. O ch\xE3o era forrado por um musgo igualmente policrom\xE1tico,
+    que parecia mudar de cor para se adaptar \xE0 luz incidente. Se tivessem tempo,
+    poderiam aprender muito ali, mas em breve seria perigoso demais continuar no
+    planeta, eles precisavam decidir no que focar."
   options:
-  - description: fgagasasfa agas aefavaga
-    effect: agasa asasfa as
-    conclusion: "ap \xE1s fa\xB4s fajks fpas faiuo faslkf aps faols aps asfasafa"
-  - description: uti asf afiyuillsaf
-    effect: hsrdfap hjkr as asaw
-    conclusion: "hjawbv\xE1w jkasf bpo aska fewnmadsoa ka foau osaflasli pa fpas
-      fasoa \xE1iofa psoasfa"
-  - description: pqow pq asfkla pwfa
-    effect: lsid gpaw afap sf apwoa
-    conclusion: ',ajsofaowp fajoaufoawi awifa k aiwa fpa fdaowi flas fap wpo asfujaowp
-      iapf asoa'
+  - portrait: {fileID: 21300000, guid: e50d440448778cd45b4a8bcdd620b8a1, type: 3}
+    description: "\"As folhas seriam perfeitas para construir uma matriz de f\xF3tons.
+      Nosso arsenal precisava mesmo de uma melhoria.\""
+    effect: 
+    conclusion: "As folhas s\xE3o grandes, e muito mais pesadas do que aparentam,
+      vai tomar certo tempo traz\xEA-las para baixo. \"Lahar, vamos precisar de mais
+      algum tempo.\", declarou o capit\xE3o. Ao fundo, o time de pesquisa escuta
+      o som distante do pod de defesa acelerando."
+  - portrait: {fileID: 21300000, guid: e50d440448778cd45b4a8bcdd620b8a1, type: 3}
+    description: "\"A forma como o musgo reage \xE0 luz... \xC9 isso! \xC9 o que
+      eu precisava para completar meu sistema de camuflagem!\""
+    effect: 
+    conclusion: "Coletar o musgo se prova mais dif\xEDcil do que pensavam. Al\xE9m
+      de resistente, se extra\xEDdo incorretamente, o musgo muchava e morria rapidamente.
+      \"Lahar, vamos precisar de mais algum tempo.\", declarou o capit\xE3o. Ao fundo,
+      o time de pesquisa escuta o som distante do pod de defesa acelerando."

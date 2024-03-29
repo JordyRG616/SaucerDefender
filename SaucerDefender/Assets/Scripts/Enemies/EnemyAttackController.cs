@@ -6,6 +6,7 @@ public class EnemyAttackController : MonoBehaviour
 {
     [SerializeField] private int Damage;
     [SerializeField] private float attackCooldown;
+    [SerializeField] private Animator animator;
     private RadialMovement radialMovement;
     private WaitForSeconds attackWait;
 
@@ -19,6 +20,7 @@ public class EnemyAttackController : MonoBehaviour
     public void StopAndAttack(HealthModule campsiteHealth)
     {
         radialMovement.enabled = false;
+        animator.SetBool("Stopped", true);
         StartCoroutine(Attack(campsiteHealth));
     }
 
@@ -27,6 +29,7 @@ public class EnemyAttackController : MonoBehaviour
         while(gameObject.activeSelf)
         {
             healthModule.CurrentHealth -= Damage;
+            animator.SetTrigger("Attacking");
 
             yield return attackWait;
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ResearchManager : ManagerBehaviour
@@ -8,7 +9,9 @@ public class ResearchManager : ManagerBehaviour
     public Signal<float> OnResearchProgress = new Signal<float>();
     public Signal OnResearchCompleted = new Signal();
     public Signal OnResearchStarted = new Signal();
+    public Signal<Sprite> OnResearchReceived = new Signal<Sprite>();
 
+    [SerializeField] private List<QueueBox> researchQueue;
     [SerializeField] private float researchSpeed;
 
     private List<ResearchType> storedResearchs = new();
@@ -16,8 +19,9 @@ public class ResearchManager : ManagerBehaviour
     private ResearchType currentResearchType;
     private float currentRequiredResearch;
     private float accumulatedResearch;
-    private bool researching;
     private CampsiteModule campsite;
+    private bool researching;
+    private int queueIndex;
 
 
     private void Start()
@@ -26,12 +30,32 @@ public class ResearchManager : ManagerBehaviour
         campsite.OnResearchSiteReached += StartResearch;
     }
 
+    public void SetQueue(List<PlanetStage> researchs)
+    {
+        researchQueue.ForEach(x => x.box.SetActive(false));
+
+        for (int i = 0; i < researchs.Count; i++)
+        {
+            researchQueue[i].icon.sprite = researchs[i].GetIcon();
+            researchQueue[i].box.SetActive(true); 
+        }
+
+        queueIndex = 0;
+    }
+
+    public void MoveQueue()
+    {
+        researchQueue[queueIndex].box.SetActive(false);
+        queueIndex++;
+    }
+
     public void SetResearch(ResearchType type, float siteLocation)
     {
         currentRequiredResearch = type.requiredAmount;
         currentResearchType = type;
         campsite.SetSiteLocation(siteLocation);
 
+        OnResearchReceived.Fire(type.icon);
         OnResearchStarted.Fire();
     }
 
@@ -42,6 +66,8 @@ public class ResearchManager : ManagerBehaviour
 
     private void Update()
     {
+        if (campsite.EnemiesInRange > 0) return;
+
         if (researching)
         {
             accumulatedResearch += researchSpeed * Time.deltaTime;
@@ -62,4 +88,11 @@ public class ResearchManager : ManagerBehaviour
         storedResearchs.Add(currentResearchType);
         OnResearchCompleted.Fire();
     }
+}
+
+[System.Serializable]
+public struct QueueBox
+{
+    public GameObject box;
+    public Image icon;
 }

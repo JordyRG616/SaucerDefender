@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyModel;
-    [SerializeField] private float spawnInterval;
+    [SerializeField] private Vector2 spawnInterval;
 
     private Queue<GameObject> enemyPool = new Queue<GameObject>();
     private Timer timer;
@@ -19,9 +19,10 @@ public class EnemySpawner : MonoBehaviour
 
         timer = GetComponent<Timer>();
         timer.OnTimeOut += SpawnEnemy;
-        timer.SetTime(spawnInterval);
+        var rdm = Random.Range(spawnInterval.x, spawnInterval.y);
+        timer.SetTime(rdm);
 
-        StartSpawning();
+        //StartSpawning();
     }
 
     private void StartSpawning()
@@ -34,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnEnemy();
         timer.StopTimer();
+        spawnInterval /= 2f;
     }
 
     private void SpawnEnemy()
@@ -50,12 +52,15 @@ public class EnemySpawner : MonoBehaviour
         }
 
         enemy.GetComponent<AiMovementController>().Initialize();
+        var rdm = Random.Range(spawnInterval.x, spawnInterval.y);
+        timer.SetTime(rdm);
         timer.StartTimer();
     }
 
     private void ReturnToPool(GameObject enemy)
     {
         enemy.SetActive(false);
+        enemy.transform.position = Vector3.zero;
         enemyPool.Enqueue(enemy);
     }
 }

@@ -4,37 +4,53 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    [SerializeField, DataDropdown(typeof(ResearchType), "Assets/Resources/Data/Research types")] 
-    private List<ResearchType> researchs;
-    [SerializeField] private EventData finalEvent;
+    [SerializeField]  private List<PlanetStage> stages;
     [Space]
     [SerializeField] private ScriptableSignal OnStaySignal;
 
     private ResearchManager researchManager;
-    private bool eventReached;
 
 
-    private void Start()
+    private IEnumerator Start()
     {
         researchManager = FractaMaster.GetManager<ResearchManager>();
         OnStaySignal.Register(RequestNextResearch);
 
+        yield return new WaitForSeconds(.1f);
+        researchManager.SetQueue(stages);
         RequestNextResearch();
     }
 
     private void RequestNextResearch()
     {
-        if (researchs.Count > 0)
+        if (stages.Count > 0)
         {
-            var research = researchs[0];
-            researchs.Remove(research);
+            var stage = stages[0];
+            
+            if (stage.researchType != null)
+            {
+                var rdm = Random.Range(60, 120f);
+                researchManager.SetResearch(stage.researchType, rdm);
+            } else if (stage.eventData != null)
+            {
+                FractaMaster.GetManager<EventManager>().ReceiveEvent(stage.eventData);
+            }
 
-            var rdm = Random.Range(60, 120f);
-            researchManager.SetResearch(research, rdm);
-        } else if (!eventReached)
-        {
-            FractaMaster.GetManager<EventManager>().ReceiveEvent(finalEvent);
-            eventReached = true;
+            researchManager.MoveQueue();
+            stages.Remove(stage);
         }
+    }
+}
+
+[System.Serializable]
+public class PlanetStage
+{
+    public ResearchType researchType;
+    public EventData eventData;
+
+    public Sprite GetIcon()
+    {
+        if (researchType != null) return researchType.icon;
+        else return eventData.queueIcon;
     }
 }
