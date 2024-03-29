@@ -26,4 +26,15 @@ public class InputMap : ScriptableObject
         Planet_Strafe = controls.Planet.Strafe;
         Planet_Strafe.Enable();
     }
+
+    public void SetPlanetControls(bool enabled)
+    {
+        if(enabled)
+        {
+            controls.Planet.Enable();
+        } else
+        {
+            controls.Planet.Disable();
+        }
+    }
 }

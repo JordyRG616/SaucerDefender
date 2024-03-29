@@ -4,21 +4,42 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    [SerializeField]  private List<PlanetStage> stages;
-    [Space]
+    [SerializeField] private SpriteRenderer planetVisual;
     [SerializeField] private ScriptableSignal OnStaySignal;
+    [SerializeField] private PlanetSelectionPanel selectionPanel;
 
+    private List<PlanetStage> stages;
     private ResearchManager researchManager;
+    private PlanetData currentPlanet;
 
 
     private IEnumerator Start()
     {
         researchManager = FractaMaster.GetManager<ResearchManager>();
         OnStaySignal.Register(RequestNextResearch);
+        selectionPanel.OnPlanetSelected += ReceivePlanet;
 
         yield return new WaitForSeconds(.1f);
+        ReceivePlanet(selectionPanel.GetPlanetData(0));
         researchManager.SetQueue(stages);
         RequestNextResearch();
+    }
+
+    public void ReceivePlanet(PlanetData planetData)
+    {
+        planetVisual.sprite = planetData.visual;
+
+        stages = new(planetData.stages);
+
+        foreach (var stage in stages)
+        {
+            if(stage.eventData == null)
+            {
+                stage.researchType = planetData.GetRandomResearch();
+            }
+        }
+
+        currentPlanet = planetData;
     }
 
     private void RequestNextResearch()
