@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+    [SerializeField] private ScriptableSignal OnPlanetLoaded;
     [SerializeField] private SpriteRenderer planetVisual;
     [SerializeField] private ScriptableSignal OnStaySignal;
     [SerializeField] private PlanetSelectionPanel selectionPanel;
@@ -25,6 +26,12 @@ public class Planet : MonoBehaviour
         RequestNextResearch();
     }
 
+    public void LoadPlanet()
+    {
+        researchManager.SetQueue(stages);
+        RequestNextResearch();
+    }
+
     public void ReceivePlanet(PlanetData planetData)
     {
         planetVisual.sprite = planetData.visual;
@@ -40,6 +47,7 @@ public class Planet : MonoBehaviour
         }
 
         currentPlanet = planetData;
+        OnPlanetLoaded.Fire();
     }
 
     private void RequestNextResearch()

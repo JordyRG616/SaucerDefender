@@ -12,12 +12,19 @@ public class InventoryDisplay : MonoBehaviour
     private void Start()
     {
         researchManager = FractaMaster.GetManager<ResearchManager>();
-        researchManager.OnResearchInvetoryUpdated += UpdateDisplay;
 
+    }
+
+    private void Update()
+    {
+        if (researchManager == null) return;
+        UpdateDisplay(researchManager.storedResearchs);
     }
 
     private void UpdateDisplay(List<ResearchType> list)
     {
+        boxes.ForEach(x => x.amount = 0);
+
         foreach (var research in list)
         {
             var box = boxes.Find(x => x.researchType == research);

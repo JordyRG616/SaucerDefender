@@ -7,9 +7,11 @@ public class ScriptableLink : MonoBehaviour
 {
     [SerializeField] private ScriptableSignal signal;
     [SerializeField] private UnityEvent OnSignalFired;
+    public bool initialized;
 
     private void Start()
     {
+        initialized = true;
         signal.Register(PassSignal);
     }
 

@@ -15,6 +15,7 @@ public struct EventOption
 {
     public Sprite portrait;
     public string description;
-    public string effect;
+    public ScriptableSignal effectSignal;
+    public ScriptableSignal delayedSignal;
     [TextArea] public string conclusion;
 }

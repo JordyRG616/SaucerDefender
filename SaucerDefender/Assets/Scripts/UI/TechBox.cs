@@ -18,8 +18,8 @@ public class TechBox : MonoBehaviour
         if(costs.TrueForAll(x => x.Purchased == true))
         {
             upgradeSignal.Fire();
+            costs.ForEach(x => x.Clear());
         }
 
-        costs.ForEach(x => x.Clear());
     }
 }

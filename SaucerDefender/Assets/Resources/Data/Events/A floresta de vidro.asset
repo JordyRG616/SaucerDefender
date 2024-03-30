@@ -13,28 +13,34 @@ MonoBehaviour:
   m_Name: A floresta de vidro
   m_EditorClassIdentifier: 
   queueIcon: {fileID: 21300000, guid: 3ec54b6112e76d4488b2eab644873957, type: 3}
-  eventDescription: "\"O universo \xE9 um artista que n\xE3o decepciona\", Jal'anni
-    pensou, enquanto o time adentrava a floresta. As \xE1rvores ao seu redor eram
-    antigas, seu porte atestava sua idade. Suas folhas, notou, eram transparentes
-    como vidro, em forma de prisma, que dispersavam a luz do sol e banhavam a floresta
-    em um arco-\xEDris. O ch\xE3o era forrado por um musgo igualmente policrom\xE1tico,
-    que parecia mudar de cor para se adaptar \xE0 luz incidente. Se tivessem tempo,
-    poderiam aprender muito ali, mas em breve seria perigoso demais continuar no
-    planeta, eles precisavam decidir no que focar."
+  eventDescription: "O sinal os levou \xE0 floresta. Era uma floresta antiga, o porte
+    das \xE1rvores atestava sua idade. Imensas folhas transparentes como vidro pendiam
+    de galhos potentes, dispersando a luz do sol que passava por elas e banhando
+    a floresta em um arco-\xEDris. Era uma vis\xE3o on\xEDrica, mas o time ainda
+    estava incerto sobre a origem do sinal. Enquanto os demais procuravam por pistas,
+    Lahar contemplava as folhas prism\xE1ticas, imaginando seu potencial."
   options:
+  - portrait: {fileID: 21300000, guid: cd5cda9cd41c6384f99fa7adcdf956f9, type: 3}
+    description: "\"Essas folhas seriam perfeitas para construir uma matriz prism\xE1tica.
+      Nosso arsenal poderia usar uma melhoria.\""
+    effectSignal: {fileID: 11400000, guid: ceab0cde976c0274f926f7d1e01ce514, type: 2}
+    delayedSignal: {fileID: 11400000, guid: b063764f1e361984eb79de06af8a2c74, type: 2}
+    conclusion: "As folhas s\xE3o ainda mais pesadas e dif\xEDceis de se arrancar
+      das \xE1rvores que sua apar\xEAncia deixava transparecer. Afastado do grupo,
+      Xvtrr parecia incomodado, como se estivessem cometendo um crime. O time compartilhava
+      do sentimento, mas n\xE3o podiam deixar de usar todos os recursos \xE0 sua
+      disposi\xE7\xE3o. Levaria tempo, e eles teriam que retornar para estudar o
+      sinal, mas o custo valia a pena. Ao longe, eles podiam ouvir a capsula de combate
+      se preparando para a pr\xF3xima onda."
   - portrait: {fileID: 21300000, guid: e50d440448778cd45b4a8bcdd620b8a1, type: 3}
-    description: "\"As folhas seriam perfeitas para construir uma matriz de f\xF3tons.
-      Nosso arsenal precisava mesmo de uma melhoria.\""
-    effect: 
-    conclusion: "As folhas s\xE3o grandes, e muito mais pesadas do que aparentam,
-      vai tomar certo tempo traz\xEA-las para baixo. \"Lahar, vamos precisar de mais
-      algum tempo.\", declarou o capit\xE3o. Ao fundo, o time de pesquisa escuta
-      o som distante do pod de defesa acelerando."
-  - portrait: {fileID: 21300000, guid: e50d440448778cd45b4a8bcdd620b8a1, type: 3}
-    description: "\"A forma como o musgo reage \xE0 luz... \xC9 isso! \xC9 o que
-      eu precisava para completar meu sistema de camuflagem!\""
-    effect: 
-    conclusion: "Coletar o musgo se prova mais dif\xEDcil do que pensavam. Al\xE9m
-      de resistente, se extra\xEDdo incorretamente, o musgo muchava e morria rapidamente.
-      \"Lahar, vamos precisar de mais algum tempo.\", declarou o capit\xE3o. Ao fundo,
-      o time de pesquisa escuta o som distante do pod de defesa acelerando."
+    description: "\"Melhor focarmos na nossa miss\xE3o aqui. N\xE3o sabemos quanto
+      tempo ainda temos at\xE9 o pr\xF3ximo ataque dos similomorfos.\""
+    effectSignal: {fileID: 11400000, guid: fbb1065178de9c247bc4d220f7ceeffa, type: 2}
+    delayedSignal: {fileID: 0}
+    conclusion: "Por mais \xFAtil que fosse ser coletar as folhas, n\xE3o seria prudente
+      por em risco o objetivo da miss\xE3o. Com o time inteiro envolvido na busca,
+      eles logo encontram o que s\xF3 pode ser descrito como um altar, aparentemente
+      constru\xEDdo das folhas locais. Em seu centro, brilha uma pequena tabuleta,
+      escrito em uma l\xEDngua desconhecida pelo tradutor universal. \"Um mist\xE9rio
+      que leva a outro. \xD3timo\", pensou Jal'anni, enquanto o grupo coletava a
+      tabuleta e se preparava para a extra\xE7\xE3o."

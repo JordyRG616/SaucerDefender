@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [Header("Signals")]
     public Signal OnPurchase = new Signal();
@@ -27,7 +27,7 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         icon.material = iconMat;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData)
     {
         if (!Purchased) Purchase();
         else Cashback();
@@ -80,5 +80,9 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         backgroundColorSet.Set("Default");
         iconMat.SetFloat("_Blend", 0);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
     }
 }

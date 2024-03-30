@@ -12,6 +12,9 @@ public class ResearchManager : ManagerBehaviour
     public Signal<Sprite> OnResearchReceived = new Signal<Sprite>();
     public Signal<List<ResearchType>> OnResearchInvetoryUpdated = new Signal<List<ResearchType>>();
 
+    [SerializeField] private ScriptableSignal OnFinalWaveSelected;
+    [SerializeField] private ScriptableSignal OnLeave;
+    [Space]
     [SerializeField] private List<QueueBox> researchQueue;
     [SerializeField] private float researchSpeed;
     [SerializeField] private List<ResearchType> researchTypes;
@@ -31,6 +34,7 @@ public class ResearchManager : ManagerBehaviour
     private CampsiteModule campsite;
     private bool researching;
     private int queueIndex;
+    private bool onFinalWave;
 
 
     private void Start()
@@ -40,6 +44,8 @@ public class ResearchManager : ManagerBehaviour
 
         researchSpeedUpgrade.Register(IncreaseResearchSpeed);
         extraResearch.Register(IncreaseExtraChance);
+
+        OnFinalWaveSelected.Register(SetFinalWave);
     }
 
     public void SetQueue(List<PlanetStage> researchs)
@@ -71,6 +77,12 @@ public class ResearchManager : ManagerBehaviour
         OnResearchStarted.Fire();
     }
 
+    public void SetFinalWave()
+    {
+        onFinalWave = true;
+        researching = true;
+    }
+
     private void StartResearch()
     {
         researching = true;
@@ -96,6 +108,14 @@ public class ResearchManager : ManagerBehaviour
     {
         accumulatedResearch = 0;
         researching = false;
+        OnResearchCompleted.Fire();
+
+        if (onFinalWave)
+        {
+            OnLeave.Fire();
+            onFinalWave = false;
+            return;
+        }
 
         if (Random.value < extraResearchChance)
         {
@@ -104,7 +124,6 @@ public class ResearchManager : ManagerBehaviour
         }
 
         ReceiveResearchPoint(currentResearchType);
-        OnResearchCompleted.Fire();
     }
 
     public bool HasResearchPoint(ResearchType research)

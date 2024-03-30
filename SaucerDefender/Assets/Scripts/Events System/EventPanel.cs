@@ -12,18 +12,24 @@ public class EventPanel : MonoBehaviour
     [SerializeField] private List<OptionBox> optionBoxes;
     [SerializeField] private GameObject lastBox;
     [SerializeField] private InputMap inputMap;
+    [SerializeField] private ScriptableSignal OnLeave;
 
+    private System.Action OnConclusion;
+    private System.Action DelayedEffect;
 
     private void Start()
     {
         var eventManager = FractaMaster.GetManager<EventManager>();
         eventManager.OnEventReceived += ReceiveEvent;
         eventManager.OnOptionSelected += ReceiveConclusion;
+
+        OnLeave.Register(DoDelayedEffect);
     }
 
     public void ReceiveEvent(EventData eventData)
     {
         inputMap.SetPlanetControls(false);
+        inputMap.lockFireControls = true;
         lastBox.SetActive(false);
         panel.SetActive(true);
 
@@ -48,13 +54,31 @@ public class EventPanel : MonoBehaviour
     {
         optionBoxes.ForEach(x => x.box.SetActive(false));
         eventDescription.SetText(option.conclusion);
+        eventDescription.OnTextRevealed.Set(null);
+        eventDescription.Play();
         lastBox.SetActive(true);
+
+        OnConclusion = option.effectSignal.Fire;
+        if (option.delayedSignal != null)
+        {
+            Debug.Log("Registered");
+            DelayedEffect += option.delayedSignal.Fire;
+        }
     }
 
     public void Close()
     {
+        inputMap.lockFireControls = false;
         inputMap.SetPlanetControls(true);
         panel.SetActive(false);
+        OnConclusion.Invoke();
+        OnConclusion = null;
+    }
+
+    private void DoDelayedEffect()
+    {
+        DelayedEffect?.Invoke();
+        DelayedEffect = null;
     }
 }
 
@@ -69,8 +93,6 @@ public class OptionBox
 
     public void ReceiveOption(EventOption option)
     {
-        optionEffect.text = option.effect;
-
         if (option.portrait != null)
         {
             characterPortrait.sprite = option.portrait;

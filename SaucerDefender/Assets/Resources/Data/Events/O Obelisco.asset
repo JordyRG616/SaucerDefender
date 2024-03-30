@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f0af6620265845bdff4c474737f83, type: 3}
+  m_Name: O Obelisco
+  m_EditorClassIdentifier: 
+  queueIcon: {fileID: 21300000, guid: 3ec54b6112e76d4488b2eab644873957, type: 3}
+  eventDescription: "N\xE3o era dificil imaginar de onde veio o sinal dessa vez.
+    O deserto se estendia at\xE9 onde a visa alcan\xE7ava, e o obelisco branco se
+    destacava contra a areia vermelha. Era torto, curvado, pontudo, quase lembrando
+    um dedo apontando para o c\xE9u. A pouca vegeta\xE7\xE3o do deserto n\xE3o parecia
+    gostar do artefato, nada crescia ao seu redor. Circuitos corriam pela superf\xEDcie
+    do obelisco como veias, o que lhe dava um aspecto ainda mais macabro. Klassiq,
+    ao contr\xE1rio do time, parecia extasiado com a descoberta."
+  options:
+  - portrait: {fileID: 21300000, guid: 7800ea1a284a62b43901b5b818207fa1, type: 3}
+    description: "\"Essa tecnologia... eu j\xE1 vi isso antes! Podemos construir
+      um Pulso Cin\xE9tico atrav\xE9s dela!\""
+    effectSignal: {fileID: 11400000, guid: ceab0cde976c0274f926f7d1e01ce514, type: 2}
+    delayedSignal: {fileID: 11400000, guid: 2df9d3bbcddc5144faf92f8df2e7800d, type: 2}
+    conclusion: "O time inteiro parece desconfort\xE1vel com a ideia de se estudar
+      o obelisco, n\xE3o somente por conta da apar\xEAncia funebre deste, mas o deserto
+      parecia o lugar perfeito para uma emboscada dos similomorfos. Ainda assim,
+      todos faziam seu trabalho com esmero, sempre de olho no horizonte pela horda
+      infind\xE1vel que lhes ca\xE7avam pelo cosmo. Dito e feito, n\xE3o demorou
+      para que a amea\xE7a surgisse."
+  - portrait: {fileID: 21300000, guid: 5a3202ee8ed31cc46bbc9252c995d8b7, type: 3}
+    description: "\"Eu preferiria n\xE3o passar mais tempo do que o necess\xE1rio
+      aqui. Vamos fazer o que viemos fazer.\""
+    effectSignal: {fileID: 11400000, guid: fbb1065178de9c247bc4d220f7ceeffa, type: 2}
+    delayedSignal: {fileID: 0}
+    conclusion: "E assim fizeram. Desmontaram com celeridade o obelisco atr\xE1s
+      de uma pista do que o sinal pudesse significar, mas sem sorte alguma. Tudo
+      que encontraram foi uma tabuleta coberta de s\xEDmbolos pouco familiares para
+      qualquer um deles. Descobrir o significado disso ficaria para outro dia, no
+      momento, eles precisavam deixar o planeta."

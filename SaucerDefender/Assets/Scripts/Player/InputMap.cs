@@ -13,6 +13,7 @@ public class InputMap : ScriptableObject
     public InputAction Planet_Strafe { get; private set; }
     public InputAction Planet_Jump { get; private set; }
 
+    public bool lockFireControls = false;
 
     public void Initialize()
     {
@@ -38,6 +39,20 @@ public class InputMap : ScriptableObject
         } else
         {
             controls.Planet.Disable();
+        }
+    }
+
+    public void SetFireControls(bool enabled)
+    {
+        if (lockFireControls) return;
+
+        if (enabled)
+        {
+            Planet_Fire.Enable();
+        }
+        else
+        {
+            Planet_Fire.Disable();
         }
     }
 }

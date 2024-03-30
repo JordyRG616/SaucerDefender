@@ -6,6 +6,7 @@ using TMPro;
 
 public class TechScreen : MonoBehaviour
 {
+    [SerializeField] private InputMap inputMap;
     [SerializeField] private List<TechTree> techOptions;
     [Space]
     [SerializeField] private TextMeshProUGUI characterName;
@@ -43,6 +44,11 @@ public class TechScreen : MonoBehaviour
         currentTree.techs.SetActive(false);
         tree.techs.SetActive(true);
         currentTree = tree;
+    }
+
+    private void Update()
+    {
+        inputMap.SetPlanetControls(false);
     }
 
     public void ChangeTree(int direction)
