@@ -36,7 +36,7 @@ MonoBehaviour:
     description: "\"Eu preferiria n\xE3o passar mais tempo do que o necess\xE1rio
       aqui. Vamos fazer o que viemos fazer.\""
     effectSignal: {fileID: 11400000, guid: fbb1065178de9c247bc4d220f7ceeffa, type: 2}
-    delayedSignal: {fileID: 0}
+    delayedSignal: {fileID: 11400000, guid: 089ccf79b84ca1944afa650e7e258256, type: 2}
     conclusion: "E assim fizeram. Desmontaram com celeridade o obelisco atr\xE1s
       de uma pista do que o sinal pudesse significar, mas sem sorte alguma. Tudo
       que encontraram foi uma tabuleta coberta de s\xEDmbolos pouco familiares para

@@ -36,7 +36,7 @@ MonoBehaviour:
     description: "\"Melhor focarmos na nossa miss\xE3o aqui. N\xE3o sabemos quanto
       tempo ainda temos at\xE9 o pr\xF3ximo ataque dos similomorfos.\""
     effectSignal: {fileID: 11400000, guid: fbb1065178de9c247bc4d220f7ceeffa, type: 2}
-    delayedSignal: {fileID: 0}
+    delayedSignal: {fileID: 11400000, guid: 089ccf79b84ca1944afa650e7e258256, type: 2}
     conclusion: "Por mais \xFAtil que fosse ser coletar as folhas, n\xE3o seria prudente
       por em risco o objetivo da miss\xE3o. Com o time inteiro envolvido na busca,
       eles logo encontram o que s\xF3 pode ser descrito como um altar, aparentemente

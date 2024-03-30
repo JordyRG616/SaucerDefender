@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac93f8d37225bd649ac28fa58acf65d2, type: 3}
+  m_Name: Omicron five - 32
+  m_EditorClassIdentifier: 
+  visual: {fileID: 21300000, guid: 39646b2a129c2224c8a5be40f3f4dfbe, type: 3}
+  researchTypes:
+  - {fileID: 11400000, guid: 85ce261db738cbd42a1a56d7d3e4bc4d, type: 2}
+  - {fileID: 11400000, guid: 91c2133cde6267e45964605b470b47bf, type: 2}
+  stages:
+  - researchType: {fileID: 0}
+    eventData: {fileID: 0}
+  - researchType: {fileID: 0}
+    eventData: {fileID: 0}
+  - researchType: {fileID: 0}
+    eventData: {fileID: 0}
+  - researchType: {fileID: 0}
+    eventData: {fileID: 0}
+  - researchType: {fileID: 0}
+    eventData: {fileID: 11400000, guid: 7966572fad4098d4db468fadd9fce75d, type: 2}
+  planetDescription: "A 2 semanas atr\xE1s tivemos um acontecimento inesperado no
+    setor gal\xE1ctico 76. Fontes informam que um corpo celeste apareceu no sistema
+    repentinamente, a uma dist\xE2ncia de 1,964 \xD7 10^9 km da estrela do sistema.
+    \r\n\tNossas sondas indicam que o planeta est\xE1 deserto, por\xE9m estranhos
+    artefatos podem ser vistos na superf\xEDcie, precisamos que a HGC - breacher
+    conduza um estudo na \xE1rea e reporte o mais r\xE1pido poss\xEDvel.\r\n"

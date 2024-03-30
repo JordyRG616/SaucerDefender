@@ -31,6 +31,8 @@ public class CampsiteModule : MonoBehaviour
         coll = GetComponent<Collider2D>();
 
         healthModule = GetComponent<HealthModule>();
+        healthModule.OnDeath += GameOver;
+
         movementController = GetComponent<AiMovementController>();
         movementController.OnTargetReached += OnResearchSiteReached.Fire;
 
@@ -70,5 +72,10 @@ public class CampsiteModule : MonoBehaviour
     private void IncreaseMaxHealth()
     {
         healthModule.RaiseMaxHealth(healthIncrease);
+    }
+
+    private void GameOver(GameObject obj)
+    {
+        FractaMaster.GetManager<EndgameManager>().DoGameOver();
     }
 }

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353f0af6620265845bdff4c474737f83, type: 3}
+  m_Name: "A cidade que j\xE1 foi"
+  m_EditorClassIdentifier: 
+  queueIcon: {fileID: 21300000, guid: 3ec54b6112e76d4488b2eab644873957, type: 3}
+  eventDescription: "O time n\xE3o esperava que o sinal os levasse o que parece ter
+    sido um dia uma cidade, agora em ru\xEDnas. Era poss\xEDvel ver pelo que restou
+    da arquitetura que aquela era uma civiliza\xE7\xE3o avan\xE7ada, e eles conseguiam
+    imaginar a causa de sua queda. Era por isso que estavam ali, para garantir que
+    o que houve ali, n\xE3o aconteceria em nenhum planeta da HGC. Enterrado em uma
+    pilha de poeira e sucata, Xvtrr encontrou os destro\xE7os do que parecia um antigo
+    drone de batalha."
+  options:
+  - portrait: {fileID: 21300000, guid: 5a3202ee8ed31cc46bbc9252c995d8b7, type: 3}
+    description: "\"Com tempo e paci\xEAncia, estou certo de que posso melhorar nossa
+      capsula com essa tecnologia\""
+    effectSignal: {fileID: 11400000, guid: ceab0cde976c0274f926f7d1e01ce514, type: 2}
+    delayedSignal: {fileID: 11400000, guid: 5cf4978e66e59a34baa7d00fa60ef082, type: 2}
+    conclusion: "Xvtrr trabalhava r\xE1pido, essa era a vantagem de tantos membros
+      proficientes. Mesmo assim, n\xE3o seria r\xE1pido o suficiente. A tecnologia
+      era antiga, e ainda assim anos \xE0 frente do que a HGC estava acostumada a
+      lidar. Tomaria um tempo para desmontar e entender o aparato, investigar a cidade
+      teria que ficar para outro dia, e eles s\xF3 podiam torcer para quea a capsula
+      de combate segurasse os similomorfos por tempo o suficiente."
+  - portrait: {fileID: 21300000, guid: cd5cda9cd41c6384f99fa7adcdf956f9, type: 3}
+    description: "\"Infelizmente, n\xE3o temos tempo para coletar a tecnologia local.
+      Precisamos encontrar o sinal.\""
+    effectSignal: {fileID: 11400000, guid: fbb1065178de9c247bc4d220f7ceeffa, type: 2}
+    delayedSignal: {fileID: 11400000, guid: 089ccf79b84ca1944afa650e7e258256, type: 2}
+    conclusion: "A busca tomou mais tempo do que gostariam, quase mais tempo do que
+      tinham, mas foi bem sucedida. Em uma das mais opulentes ru\xEDnas, o time encontrou
+      o que parecia ser uma esta\xE7\xE3o de comando espacial. Computadores dividiam
+      o espa\xE7o com artefatos que ningu\xE9m poderia dizer para o que serviram
+      um dia, e em um desses, estava uma tabuleta. Velha, desgastada, escrita em
+      uma l\xEDngua antiga, importante. O time pegou-a para si e deixaram o planeta."
