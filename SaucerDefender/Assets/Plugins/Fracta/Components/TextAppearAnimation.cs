@@ -5,6 +5,9 @@ using TMPro;
 
 public class TextAppearAnimation : MonoBehaviour
 {
+    [Header("Signals")]
+    public Signal OnTextRevealed = new Signal();
+
     [Tooltip("Interval between the reveal of each letter.")]
     [SerializeField] private float deltaTime;
     [SerializeField] private bool skipable = false;
@@ -13,6 +16,7 @@ public class TextAppearAnimation : MonoBehaviour
     private float ogDeltaTime;
     private Color textColor;
     public bool playing {get; private set;}
+    private bool skipped;
 
     void Awake()
     {
@@ -32,6 +36,7 @@ public class TextAppearAnimation : MonoBehaviour
 
     public IEnumerator Reveal()
     {
+        skipped = false;
         textRenderer.ForceMeshUpdate();
         var textInfo = textRenderer.textInfo;
         textColor = textRenderer.color;
@@ -59,11 +64,13 @@ public class TextAppearAnimation : MonoBehaviour
                 textRenderer.UpdateGeometry(meshInfo.mesh, x);
             }
 
-            yield return new WaitForSeconds(deltaTime);
+            if (!skipped) yield return new WaitForSeconds(deltaTime);
+            else yield return new WaitForEndOfFrame();
         }
 
         deltaTime = ogDeltaTime;
         playing = false;
+        OnTextRevealed.Fire();
     }
 
 
@@ -107,7 +114,7 @@ public class TextAppearAnimation : MonoBehaviour
     {
         if(skipable && playing && Input.anyKeyDown)
         {
-            deltaTime = 0;
+            skipped = true;
         }
     }
 }

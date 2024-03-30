@@ -10,12 +10,21 @@ public class ResearchManager : ManagerBehaviour
     public Signal OnResearchCompleted = new Signal();
     public Signal OnResearchStarted = new Signal();
     public Signal<Sprite> OnResearchReceived = new Signal<Sprite>();
+    public Signal<List<ResearchType>> OnResearchInvetoryUpdated = new Signal<List<ResearchType>>();
 
     [SerializeField] private List<QueueBox> researchQueue;
     [SerializeField] private float researchSpeed;
+    [SerializeField] private List<ResearchType> researchTypes;
+    [Header("Upgrades")]
+    [SerializeField] private ScriptableSignal researchSpeedUpgrade;
+    [SerializeField] private float speedIncrease;
+    [Space]
+    [SerializeField] private ScriptableSignal extraResearch;
+    [SerializeField] private float extraResearchIncrease;
 
-    private List<ResearchType> storedResearchs = new();
+    public List<ResearchType> storedResearchs { get; private set; }  = new();
 
+    private float extraResearchChance = 0;
     private ResearchType currentResearchType;
     private float currentRequiredResearch;
     private float accumulatedResearch;
@@ -28,6 +37,9 @@ public class ResearchManager : ManagerBehaviour
     {
         campsite = FindObjectOfType<CampsiteModule>();
         campsite.OnResearchSiteReached += StartResearch;
+
+        researchSpeedUpgrade.Register(IncreaseResearchSpeed);
+        extraResearch.Register(IncreaseExtraChance);
     }
 
     public void SetQueue(List<PlanetStage> researchs)
@@ -85,7 +97,13 @@ public class ResearchManager : ManagerBehaviour
         accumulatedResearch = 0;
         researching = false;
 
-        storedResearchs.Add(currentResearchType);
+        if (Random.value < extraResearchChance)
+        {
+            var rdm = Random.Range(0, researchTypes.Count);
+            ReceiveResearchPoint(researchTypes[rdm]);
+        }
+
+        ReceiveResearchPoint(currentResearchType);
         OnResearchCompleted.Fire();
     }
 
@@ -102,11 +120,25 @@ public class ResearchManager : ManagerBehaviour
         {
             storedResearchs.Remove(res);
         }
+
+        OnResearchInvetoryUpdated.Fire(storedResearchs);
     }
 
     public void ReceiveResearchPoint(ResearchType research)
     {
         storedResearchs.Add(research);
+
+        OnResearchInvetoryUpdated.Fire(storedResearchs);
+    }
+
+    private void IncreaseResearchSpeed()
+    {
+        researchSpeed *= 1 + speedIncrease;
+    }
+
+    private void IncreaseExtraChance()
+    {
+        extraResearchChance += extraResearchIncrease;
     }
 }
 

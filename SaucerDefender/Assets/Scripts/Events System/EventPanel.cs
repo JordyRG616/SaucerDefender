@@ -8,9 +8,10 @@ public class EventPanel : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI eventTitle;
-    [SerializeField] private TextMeshProUGUI eventDescription;
+    [SerializeField] private TextAppearAnimation eventDescription;
     [SerializeField] private List<OptionBox> optionBoxes;
     [SerializeField] private GameObject lastBox;
+    [SerializeField] private InputMap inputMap;
 
 
     private void Start()
@@ -22,24 +23,38 @@ public class EventPanel : MonoBehaviour
 
     public void ReceiveEvent(EventData eventData)
     {
-        eventTitle.text = eventData.name;
-        eventDescription.text = eventData.eventDescription;
-
-        optionBoxes.ForEach(x => x.box.SetActive(false));
-        for (int i = 0; i < eventData.options.Count; i++)
-        {
-            optionBoxes[i].ReceiveOption(eventData.options[i]);
-        }
-
+        inputMap.SetPlanetControls(false);
         lastBox.SetActive(false);
         panel.SetActive(true);
+
+        eventTitle.text = eventData.name;
+        eventDescription.SetText(eventData.eventDescription);
+        optionBoxes.ForEach(x => x.box.SetActive(false));
+
+        eventDescription.OnTextRevealed.Set(() => RevealOption(eventData, 0));
+        eventDescription.Play();
+    }
+
+    private void RevealOption(EventData eventData, int index)
+    {
+        if (index >= eventData.options.Count) return;
+
+        var box = optionBoxes[index];
+        box.ReceiveOption(eventData.options[index]);
+        box.optionDescription.OnTextRevealed.Set(() => RevealOption(eventData, index + 1));
     }
 
     public void ReceiveConclusion(EventOption option)
     {
         optionBoxes.ForEach(x => x.box.SetActive(false));
-        eventDescription.text = option.conclusion;
+        eventDescription.SetText(option.conclusion);
         lastBox.SetActive(true);
+    }
+
+    public void Close()
+    {
+        inputMap.SetPlanetControls(true);
+        panel.SetActive(false);
     }
 }
 
@@ -47,14 +62,13 @@ public class EventPanel : MonoBehaviour
 public class OptionBox
 {
     public GameObject box;
-    [SerializeField] private TextMeshProUGUI optionDescription;
+    public TextAppearAnimation optionDescription;
     [SerializeField] private TextMeshProUGUI optionEffect;
     [SerializeField] private Image characterPortrait;
 
 
     public void ReceiveOption(EventOption option)
     {
-        optionDescription.text = option.description;
         optionEffect.text = option.effect;
 
         if (option.portrait != null)
@@ -68,5 +82,7 @@ public class OptionBox
         }
 
         box.SetActive(true);
+        optionDescription.SetText(option.description);
+        optionDescription.Play();
     }
 }

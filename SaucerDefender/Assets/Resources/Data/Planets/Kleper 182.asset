@@ -20,11 +20,5 @@ MonoBehaviour:
   - researchType: {fileID: 0}
     eventData: {fileID: 0}
   - researchType: {fileID: 0}
-    eventData: {fileID: 0}
-  - researchType: {fileID: 0}
-    eventData: {fileID: 0}
-  - researchType: {fileID: 0}
-    eventData: {fileID: 0}
-  - researchType: {fileID: 0}
     eventData: {fileID: 11400000, guid: 1e16d4356f5e76849b8180b54439ea74, type: 2}
   planetDescription: "Este \xE9 mais um teste de planetas."

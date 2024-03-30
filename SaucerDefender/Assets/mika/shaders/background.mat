@@ -57,8 +57,8 @@ Material:
     - _Float: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _speed: 0.16
-    - _speed_2: -0.5
+    - _speed: 0.02
+    - _speed_2: -0.05
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _Color_1: {r: 1, g: 1, b: 1, a: 0}

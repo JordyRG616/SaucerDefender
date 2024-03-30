@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnEnemy();
         timer.StopTimer();
-        spawnInterval /= 2f;
+        spawnInterval /= 1.33f;
     }
 
     private void SpawnEnemy()
@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(enemyPool.Count == 0)
         {
-            enemy = Instantiate(enemyModel);
+            enemy = Instantiate(enemyModel, Vector3.zero, Quaternion.identity);
             enemy.GetComponent<HealthModule>().OnDeath += ReturnToPool;
         } else
         {

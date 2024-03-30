@@ -14,4 +14,14 @@ public class ParticleSystemDamageModule : MonoBehaviour
             healthModule.CurrentHealth -= damage;
         } 
     }
+
+    public void RaiseDamage(int value)
+    {
+        damage += value;
+    }
+
+    public void RaiseDamage(float percentage)
+    {
+        damage = Mathf.RoundToInt(damage * (1 + percentage));
+    }
 }

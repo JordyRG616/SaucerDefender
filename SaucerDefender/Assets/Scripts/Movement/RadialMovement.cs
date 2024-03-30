@@ -67,4 +67,9 @@ public class RadialMovement : MonoBehaviour
         var pos = Random.value > .5f ? maxAngle.x : maxAngle.y;
         CurrentAngle = pos;
     }
+
+    public void RaiseSpeed(float speedIncrease)
+    {
+        speed *= 1 + speedIncrease;
+    }
 }

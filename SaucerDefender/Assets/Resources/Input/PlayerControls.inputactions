@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "cca20197-ee8e-4ab2-9b02-f839f80836b5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -79,17 +88,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2d2e7cfb-3696-4dce-8764-16a8b70270c3",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Axis",
                     "id": "2fb60fd7-175a-41c7-a5e0-764a2c8c7be1",
                     "path": "1DAxis",
@@ -121,6 +119,17 @@
                     "action": "Strafe",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "58c6ab86-810d-4124-958d-4433490e3501",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

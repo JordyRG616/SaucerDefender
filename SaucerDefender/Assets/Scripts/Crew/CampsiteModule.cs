@@ -8,6 +8,12 @@ public class CampsiteModule : MonoBehaviour
     public Signal OnResearchSiteReached = new Signal();
 
     [SerializeField] private Animator animator;
+    [Header("Upgrades")]
+    [SerializeField] private ScriptableSignal healthRegen;
+    [SerializeField] private int regenIncrease;
+    [Space]
+    [SerializeField] private ScriptableSignal maxHealth;
+    [SerializeField] private int healthIncrease;
 
     public int EnemiesInRange => coll.GetContacts(contacts);
 
@@ -15,6 +21,7 @@ public class CampsiteModule : MonoBehaviour
     private AiMovementController movementController;
     private HealthModule healthModule;
     private Collider2D coll;
+    private int regen;
 
 
     private void Awake()
@@ -29,6 +36,9 @@ public class CampsiteModule : MonoBehaviour
 
         var radialMovement = GetComponent<RadialMovement>();
         radialMovement.SetAngle(90);
+
+        healthRegen.Register(IncreaseHealthRegen);
+        maxHealth.Register(IncreaseMaxHealth);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,10 +53,22 @@ public class CampsiteModule : MonoBehaviour
     {
         movementController.SetTarget(location);
         animator.SetBool("Moving", true);
+
+        healthModule.CurrentHealth += regen;
     }
 
     private void SetIdleState()
     {
         animator.SetBool("Moving", false);
+    }
+
+    private void IncreaseHealthRegen()
+    {
+        regen += regenIncrease;
+    }
+
+    private void IncreaseMaxHealth()
+    {
+        healthModule.RaiseMaxHealth(healthIncrease);
     }
 }

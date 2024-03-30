@@ -1,0 +1,12 @@
+alterar valores de upgrades básicos
+//inimigos adicionais
+pensar no algoritmo senciente
+eventos de eureka
+background de personagens
+background de planetas
+Aim assist
+
+some juice ?
+{
+	screen shake no raio?
+}

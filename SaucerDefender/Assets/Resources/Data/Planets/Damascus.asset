@@ -19,12 +19,6 @@ MonoBehaviour:
   stages:
   - researchType: {fileID: 11400000, guid: 85ce261db738cbd42a1a56d7d3e4bc4d, type: 2}
     eventData: {fileID: 0}
-  - researchType: {fileID: 11400000, guid: 85ce261db738cbd42a1a56d7d3e4bc4d, type: 2}
-    eventData: {fileID: 0}
-  - researchType: {fileID: 11400000, guid: 85ce261db738cbd42a1a56d7d3e4bc4d, type: 2}
-    eventData: {fileID: 0}
-  - researchType: {fileID: 11400000, guid: 91c2133cde6267e45964605b470b47bf, type: 2}
-    eventData: {fileID: 0}
   - researchType: {fileID: 0}
     eventData: {fileID: 11400000, guid: 1e16d4356f5e76849b8180b54439ea74, type: 2}
   planetDescription: "Este \xE9 somente um teste do sistema de sele\xE7\xE3o de planetas."

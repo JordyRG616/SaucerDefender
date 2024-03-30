@@ -53,6 +53,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""cca20197-ee8e-4ab2-9b02-f839f80836b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -101,17 +110,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""2d2e7cfb-3696-4dce-8764-16a8b70270c3"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Axis"",
                     ""id"": ""2fb60fd7-175a-41c7-a5e0-764a2c8c7be1"",
                     ""path"": ""1DAxis"",
@@ -143,6 +141,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Strafe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58c6ab86-810d-4124-958d-4433490e3501"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +163,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Planet_Move = m_Planet.FindAction("Move", throwIfNotFound: true);
         m_Planet_Fire = m_Planet.FindAction("Fire", throwIfNotFound: true);
         m_Planet_Strafe = m_Planet.FindAction("Strafe", throwIfNotFound: true);
+        m_Planet_Jump = m_Planet.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,6 +228,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Planet_Move;
     private readonly InputAction m_Planet_Fire;
     private readonly InputAction m_Planet_Strafe;
+    private readonly InputAction m_Planet_Jump;
     public struct PlanetActions
     {
         private @PlayerControls m_Wrapper;
@@ -225,6 +236,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Planet_Move;
         public InputAction @Fire => m_Wrapper.m_Planet_Fire;
         public InputAction @Strafe => m_Wrapper.m_Planet_Strafe;
+        public InputAction @Jump => m_Wrapper.m_Planet_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Planet; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -243,6 +255,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Strafe.started += instance.OnStrafe;
             @Strafe.performed += instance.OnStrafe;
             @Strafe.canceled += instance.OnStrafe;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IPlanetActions instance)
@@ -256,6 +271,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Strafe.started -= instance.OnStrafe;
             @Strafe.performed -= instance.OnStrafe;
             @Strafe.canceled -= instance.OnStrafe;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IPlanetActions instance)
@@ -278,5 +296,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnStrafe(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

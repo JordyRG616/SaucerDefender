@@ -30,6 +30,12 @@ public class HealthModule : MonoBehaviour
         CurrentHealth = maxHealth;
     }
 
+    public void RaiseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        CurrentHealth += amount;
+    }
+
     public void Die()
     {
         OnDeath.Fire(gameObject);

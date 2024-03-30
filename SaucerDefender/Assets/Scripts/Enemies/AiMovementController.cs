@@ -49,4 +49,9 @@ public class AiMovementController : MonoBehaviour
         onTarget = false;
         movement.Frozen = false;
     }
+
+    public float GetDistanceFromTarget()
+    {
+        return Mathf.Abs(targetAngle - movement.CurrentAngle);
+    }
 }
