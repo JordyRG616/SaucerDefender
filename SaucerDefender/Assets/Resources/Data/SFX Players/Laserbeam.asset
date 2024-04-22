@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfx:
     Guid:
-      Data1: -367099723
-      Data2: 1100045204
-      Data3: -1884137051
-      Data4: -1803563647
-    Path: event:/Laser
+      Data1: 1922834588
+      Data2: 1097870535
+      Data3: -1233797466
+      Data4: 1915145231
+    Path: event:/Beam
   muted: 0

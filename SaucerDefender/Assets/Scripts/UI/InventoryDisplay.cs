@@ -12,30 +12,29 @@ public class InventoryDisplay : MonoBehaviour
     private void Start()
     {
         researchManager = FractaMaster.GetManager<ResearchManager>();
-
+        researchManager.OnResearchGained += GainResearch;
+        researchManager.OnResearchSpended += SpendResearch;
     }
 
-    private void Update()
+    private void GainResearch(ResearchType researchType)
     {
-        if (researchManager == null) return;
-        UpdateDisplay(researchManager.storedResearchs);
+        var box = boxes.Find(x => x.researchType == researchType);
+
+        box.amount++;
+        box.display.text = box.amount.ToString();
     }
 
-    private void UpdateDisplay(List<ResearchType> list)
+    private void SpendResearch(ResearchType researchType)
     {
-        boxes.ForEach(x => x.amount = 0);
+        var box = boxes.Find(x => x.researchType == researchType);
 
-        foreach (var research in list)
-        {
-            var box = boxes.Find(x => x.researchType == research);
-            box.amount++;
-            box.display.text = box.amount.ToString();
-        }
+        box.amount--;
+        box.display.text = box.amount.ToString();
     }
 }
 
 [System.Serializable]
-public struct InventoryBox
+public class InventoryBox
 {
     public ResearchType researchType;
     public int amount;

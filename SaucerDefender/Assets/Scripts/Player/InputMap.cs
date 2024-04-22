@@ -6,12 +6,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Input Map")]
 public class InputMap : ScriptableObject
 {
+    public Signal<Vector2> OnBoardNavigation = new Signal<Vector2>();
+
     private PlayerControls controls;
 
     public InputAction Planet_Move { get; private set; }
     public InputAction Planet_Fire { get; private set; }
     public InputAction Planet_Strafe { get; private set; }
     public InputAction Planet_Jump { get; private set; }
+
+    public InputAction Board_HorizontalNavigation { get; private set; }
+    public InputAction Board_VerticalNavigation { get; private set; }
 
     public bool lockFireControls = false;
 
@@ -54,5 +59,36 @@ public class InputMap : ScriptableObject
         {
             Planet_Fire.Disable();
         }
+    }
+
+    public void InitializeBoardControls()
+    {
+        controls = new PlayerControls();
+
+        Board_HorizontalNavigation = controls.Board.Horizontal_Navigation;
+        Board_HorizontalNavigation.performed += GetBoardDirection;
+        Board_HorizontalNavigation.Enable();
+
+        Board_VerticalNavigation = controls.Board.Vertical_Navigation;
+        Board_VerticalNavigation.performed += GetBoardDirection;
+        Board_VerticalNavigation.Enable();
+    }
+
+    public void GetBoardDirection(InputAction.CallbackContext callbackContext)
+    {
+        Vector2 direction = Vector2.zero;
+
+        var horizontal = Mathf.RoundToInt(Board_HorizontalNavigation.ReadValue<float>());
+        var vertical = Mathf.RoundToInt(Board_VerticalNavigation.ReadValue<float>());
+
+        if(Mathf.Abs(horizontal) > 0)
+        {
+            direction = new Vector2(horizontal, 0);
+        } else
+        {
+            direction = new Vector2(0, vertical);
+        }
+
+        OnBoardNavigation.Fire(direction);
     }
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfx:
     Guid:
-      Data1: 497178556
-      Data2: 1137216534
-      Data3: -1687367031
-      Data4: -53181702
-    Path: event:/Nave
+      Data1: 1830231290
+      Data2: 1323820854
+      Data3: 705836423
+      Data4: 1647915809
+    Path: event:/Ship_move
   muted: 0

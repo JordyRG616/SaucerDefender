@@ -61,7 +61,6 @@ public class EventPanel : MonoBehaviour
         OnConclusion = option.effectSignal.Fire;
         if (option.delayedSignal != null)
         {
-            Debug.Log("Registered");
             DelayedEffect += option.delayedSignal.Fire;
         }
     }

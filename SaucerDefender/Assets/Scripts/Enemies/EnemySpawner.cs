@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         timer.StopTimer();
 
         currentInterval /= 1.33f;
-        enemyModels.AddRange(futureEnemies);
+        enemies.AddRange(futureEnemies);
     }
 
     private void ResetPool()

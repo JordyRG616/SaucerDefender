@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 8051095789594021398}
   - component: {fileID: 989900980379086765}
   - component: {fileID: 8837858748533718864}
+  - component: {fileID: 2181074521871931160}
   m_Layer: 7
   m_Name: Spitting enemy
   m_TagString: Untagged
@@ -283,3 +284,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.16, y: 0.61}
   m_Direction: 1
+--- !u!114 &2181074521871931160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560703254102528012}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ebb9dbd388ee34aad6f7da6565afd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  attackCooldown: 0
+  animator: {fileID: 2963747822487566635}

@@ -13,15 +13,23 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     [SerializeField] private ResearchType researchType;
     [SerializeField] private ImageColorSet backgroundColorSet;
     [SerializeField] private Image icon;
+    [Space]
+    [SerializeField] private SFXPlayer hoverPos;
+    [SerializeField] private SFXPlayer hoverNeg;
+    [SerializeField] private SFXPlayer confimation;
+    [SerializeField] private SFXPlayer denied;
 
     private ResearchManager researchManager;
     public bool Purchased { get; private set; }
+    private Animator animator;
     private Material iconMat;
 
 
     private void Start()
     {
         researchManager = FractaMaster.GetManager<ResearchManager>();
+
+        animator = GetComponent<Animator>();
 
         iconMat = new Material(icon.material);
         icon.material = iconMat;
@@ -31,6 +39,8 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (!Purchased) Purchase();
         else Cashback();
+
+        animator.SetBool("Clicked", false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -38,8 +48,16 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         if (Purchased) return;
 
         var key = "Hover_";
-        if (researchManager.HasResearchPoint(researchType)) key += "True";
-        else key += "False";
+        if (researchManager.HasResearchPoint(researchType))
+        {
+            key += "True";
+            hoverPos.Play();
+        }
+        else
+        {
+            key += "False";
+            hoverNeg.Play();
+        }
 
         backgroundColorSet.Set(key);
     }
@@ -61,7 +79,14 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             backgroundColorSet.Set("Purchased");
             iconMat.SetFloat("_Blend", 1);
 
+            confimation.Play();
             OnPurchase.Fire();
+            animator.SetBool("Confirmed", true);
+        }
+        else
+        {
+            denied.Play();
+            animator.SetBool("Confirmed", false);
         }
     }
 
@@ -72,7 +97,9 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
         backgroundColorSet.Set("Default");
         iconMat.SetFloat("_Blend", 0);
+        animator.SetBool("Confirmed", true);
 
+        confimation.Play();
         OnCashback.Fire();
     }
 
@@ -80,9 +107,11 @@ public class CostBox : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         backgroundColorSet.Set("Default");
         iconMat.SetFloat("_Blend", 0);
+        Purchased = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        animator.SetBool("Clicked", true);
     }
 }

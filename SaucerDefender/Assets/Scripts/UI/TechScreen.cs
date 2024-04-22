@@ -12,7 +12,9 @@ public class TechScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI characterRole;
     [SerializeField] private Image characterVisual;
+    [SerializeField] private CanvasGroup canvasGroup;
 
+    private bool active = false;
     private TechTree currentTree;
     private int _index;
     private int treeIndex
@@ -27,15 +29,14 @@ public class TechScreen : MonoBehaviour
     }
 
 
+
     private void Start()
     {
         currentTree = techOptions[0];
-        ReceiveTree(currentTree);
-        
-        gameObject.SetActive(false);
+        ReceiveTree(currentTree, false);
     }
 
-    private void ReceiveTree(TechTree tree)
+    private void ReceiveTree(TechTree tree, bool setActive = true)
     {
         characterName.text = tree.character.name;
         characterRole.text = tree.character.role;
@@ -46,9 +47,17 @@ public class TechScreen : MonoBehaviour
         currentTree = tree;
     }
 
+
+    public void SetActive(bool active)
+    {
+        canvasGroup.alpha = active ? 1 : 0;
+        canvasGroup.blocksRaycasts = active;
+        this.active = active;
+    }
+
     private void Update()
     {
-        inputMap.SetPlanetControls(false);
+        if(active) inputMap.SetPlanetControls(false);
     }
 
     public void ChangeTree(int direction)

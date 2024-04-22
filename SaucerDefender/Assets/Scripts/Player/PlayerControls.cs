@@ -154,6 +154,164 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Board"",
+            ""id"": ""30de9a10-ceea-4275-9763-4437fcfecca1"",
+            ""actions"": [
+                {
+                    ""name"": ""Horizontal_Navigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5debc51-b3cb-44ef-b077-e34d3576ebbb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Vertical_Navigation"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f1fc29b-0e55-47ad-a405-ec5bba730aa9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Letters"",
+                    ""id"": ""180278a7-96b0-4cec-a4e2-703b8d42c405"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9e4b82d3-ed07-4338-aa90-42612b818247"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""271721e1-907d-4dc3-9598-3af8a51fa950"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""c55235a5-cfac-40ea-bccf-d68d393982e9"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""727cd7b5-aaae-4508-8f3d-229694bdaafc"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""122732f2-0345-45e3-9920-aecb00ab024b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Letters"",
+                    ""id"": ""39ae2f43-a1b2-4dbf-8edc-251944fd4e1b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""0c403820-ccca-44c2-81d0-79be8d6bf4d2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8665ade1-5c5a-4b47-a119-78c43820c220"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""448d1498-9235-4107-9a9b-3732e8d84591"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9de4b3b9-73a5-463a-957f-c7ae74da7d6b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""94282d57-3e13-4b0f-93d9-495985a35d9f"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical_Navigation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -164,6 +322,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Planet_Fire = m_Planet.FindAction("Fire", throwIfNotFound: true);
         m_Planet_Strafe = m_Planet.FindAction("Strafe", throwIfNotFound: true);
         m_Planet_Jump = m_Planet.FindAction("Jump", throwIfNotFound: true);
+        // Board
+        m_Board = asset.FindActionMap("Board", throwIfNotFound: true);
+        m_Board_Horizontal_Navigation = m_Board.FindAction("Horizontal_Navigation", throwIfNotFound: true);
+        m_Board_Vertical_Navigation = m_Board.FindAction("Vertical_Navigation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -291,11 +453,70 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlanetActions @Planet => new PlanetActions(this);
+
+    // Board
+    private readonly InputActionMap m_Board;
+    private List<IBoardActions> m_BoardActionsCallbackInterfaces = new List<IBoardActions>();
+    private readonly InputAction m_Board_Horizontal_Navigation;
+    private readonly InputAction m_Board_Vertical_Navigation;
+    public struct BoardActions
+    {
+        private @PlayerControls m_Wrapper;
+        public BoardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Horizontal_Navigation => m_Wrapper.m_Board_Horizontal_Navigation;
+        public InputAction @Vertical_Navigation => m_Wrapper.m_Board_Vertical_Navigation;
+        public InputActionMap Get() { return m_Wrapper.m_Board; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BoardActions set) { return set.Get(); }
+        public void AddCallbacks(IBoardActions instance)
+        {
+            if (instance == null || m_Wrapper.m_BoardActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BoardActionsCallbackInterfaces.Add(instance);
+            @Horizontal_Navigation.started += instance.OnHorizontal_Navigation;
+            @Horizontal_Navigation.performed += instance.OnHorizontal_Navigation;
+            @Horizontal_Navigation.canceled += instance.OnHorizontal_Navigation;
+            @Vertical_Navigation.started += instance.OnVertical_Navigation;
+            @Vertical_Navigation.performed += instance.OnVertical_Navigation;
+            @Vertical_Navigation.canceled += instance.OnVertical_Navigation;
+        }
+
+        private void UnregisterCallbacks(IBoardActions instance)
+        {
+            @Horizontal_Navigation.started -= instance.OnHorizontal_Navigation;
+            @Horizontal_Navigation.performed -= instance.OnHorizontal_Navigation;
+            @Horizontal_Navigation.canceled -= instance.OnHorizontal_Navigation;
+            @Vertical_Navigation.started -= instance.OnVertical_Navigation;
+            @Vertical_Navigation.performed -= instance.OnVertical_Navigation;
+            @Vertical_Navigation.canceled -= instance.OnVertical_Navigation;
+        }
+
+        public void RemoveCallbacks(IBoardActions instance)
+        {
+            if (m_Wrapper.m_BoardActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IBoardActions instance)
+        {
+            foreach (var item in m_Wrapper.m_BoardActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_BoardActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public BoardActions @Board => new BoardActions(this);
     public interface IPlanetActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnStrafe(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IBoardActions
+    {
+        void OnHorizontal_Navigation(InputAction.CallbackContext context);
+        void OnVertical_Navigation(InputAction.CallbackContext context);
     }
 }

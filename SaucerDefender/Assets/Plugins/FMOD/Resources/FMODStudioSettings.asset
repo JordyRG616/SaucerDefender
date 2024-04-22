@@ -606,10 +606,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
-  sourceProjectPath: 
-  sourceBankPath: Assets/Resources/FMOD/Desktop
+  HasSourceProject: 1
+  HasPlatforms: 1
+  sourceProjectPath: ../../../Game resources/Audio/_Projects/Nebula breacher/Project/NebulaBreacher/NebulaBreacher.fspro
+  sourceBankPath: ../../../Game resources/Audio/_Projects/Nebula breacher/Project/NebulaBreacher/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -631,7 +631,7 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Jordy
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264

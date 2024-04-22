@@ -10,7 +10,8 @@ public class ResearchManager : ManagerBehaviour
     public Signal OnResearchCompleted = new Signal();
     public Signal OnResearchStarted = new Signal();
     public Signal<Sprite> OnResearchReceived = new Signal<Sprite>();
-    public Signal<List<ResearchType>> OnResearchInvetoryUpdated = new Signal<List<ResearchType>>();
+    public Signal<ResearchType> OnResearchGained = new Signal<ResearchType>();
+    public Signal<ResearchType> OnResearchSpended = new Signal<ResearchType>();
 
     [SerializeField] private ScriptableSignal OnFinalWaveSelected;
     [SerializeField] private ScriptableSignal OnLeave;
@@ -140,14 +141,14 @@ public class ResearchManager : ManagerBehaviour
             storedResearchs.Remove(res);
         }
 
-        OnResearchInvetoryUpdated.Fire(storedResearchs);
+        OnResearchSpended.Fire(research);
     }
 
     public void ReceiveResearchPoint(ResearchType research)
     {
         storedResearchs.Add(research);
 
-        OnResearchInvetoryUpdated.Fire(storedResearchs);
+        OnResearchGained.Fire(research);
     }
 
     private void IncreaseResearchSpeed()
