@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7064049715623036834}
   - component: {fileID: 1645316941346022569}
   - component: {fileID: 1265828492064940135}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39d7d459f80b9e7428c291a2cf648a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugCells: []
 --- !u!58 &1265828492064940135
 CircleCollider2D:
   m_ObjectHideFlags: 0

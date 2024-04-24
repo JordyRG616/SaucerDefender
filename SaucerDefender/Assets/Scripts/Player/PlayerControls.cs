@@ -176,6 +176,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""f9f0a0bd-b967-416a-9f7e-5fc42a88af82"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flip"",
+                    ""type"": ""Button"",
+                    ""id"": ""01a70ae2-63aa-4ff3-81ec-817a0d3159a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Place"",
+                    ""type"": ""Button"",
+                    ""id"": ""069f8770-3537-43a7-a508-bbd0b4df1750"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -310,6 +337,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Vertical_Navigation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d4e6ae45-006a-4c8a-88a0-35df8cdfbfbc"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e58bbad5-6aec-42f6-b26e-21ff781b0590"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a51ed111-9652-407a-a0e4-c6a0fcfdedb4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -326,6 +386,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Board = asset.FindActionMap("Board", throwIfNotFound: true);
         m_Board_Horizontal_Navigation = m_Board.FindAction("Horizontal_Navigation", throwIfNotFound: true);
         m_Board_Vertical_Navigation = m_Board.FindAction("Vertical_Navigation", throwIfNotFound: true);
+        m_Board_Rotate = m_Board.FindAction("Rotate", throwIfNotFound: true);
+        m_Board_Flip = m_Board.FindAction("Flip", throwIfNotFound: true);
+        m_Board_Place = m_Board.FindAction("Place", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -459,12 +522,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IBoardActions> m_BoardActionsCallbackInterfaces = new List<IBoardActions>();
     private readonly InputAction m_Board_Horizontal_Navigation;
     private readonly InputAction m_Board_Vertical_Navigation;
+    private readonly InputAction m_Board_Rotate;
+    private readonly InputAction m_Board_Flip;
+    private readonly InputAction m_Board_Place;
     public struct BoardActions
     {
         private @PlayerControls m_Wrapper;
         public BoardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Horizontal_Navigation => m_Wrapper.m_Board_Horizontal_Navigation;
         public InputAction @Vertical_Navigation => m_Wrapper.m_Board_Vertical_Navigation;
+        public InputAction @Rotate => m_Wrapper.m_Board_Rotate;
+        public InputAction @Flip => m_Wrapper.m_Board_Flip;
+        public InputAction @Place => m_Wrapper.m_Board_Place;
         public InputActionMap Get() { return m_Wrapper.m_Board; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -480,6 +549,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Vertical_Navigation.started += instance.OnVertical_Navigation;
             @Vertical_Navigation.performed += instance.OnVertical_Navigation;
             @Vertical_Navigation.canceled += instance.OnVertical_Navigation;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
+            @Flip.started += instance.OnFlip;
+            @Flip.performed += instance.OnFlip;
+            @Flip.canceled += instance.OnFlip;
+            @Place.started += instance.OnPlace;
+            @Place.performed += instance.OnPlace;
+            @Place.canceled += instance.OnPlace;
         }
 
         private void UnregisterCallbacks(IBoardActions instance)
@@ -490,6 +568,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Vertical_Navigation.started -= instance.OnVertical_Navigation;
             @Vertical_Navigation.performed -= instance.OnVertical_Navigation;
             @Vertical_Navigation.canceled -= instance.OnVertical_Navigation;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
+            @Flip.started -= instance.OnFlip;
+            @Flip.performed -= instance.OnFlip;
+            @Flip.canceled -= instance.OnFlip;
+            @Place.started -= instance.OnPlace;
+            @Place.performed -= instance.OnPlace;
+            @Place.canceled -= instance.OnPlace;
         }
 
         public void RemoveCallbacks(IBoardActions instance)
@@ -518,5 +605,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnHorizontal_Navigation(InputAction.CallbackContext context);
         void OnVertical_Navigation(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+        void OnFlip(InputAction.CallbackContext context);
+        void OnPlace(InputAction.CallbackContext context);
     }
 }

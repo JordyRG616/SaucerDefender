@@ -10,6 +10,7 @@ public class EmptyTechCell : MonoBehaviour
     private Dictionary<Vector2, EmptyTechCell> connectedCells = new Dictionary<Vector2, EmptyTechCell>();
 
     private TechBoard board;
+    public bool Occupied { get; private set; }
 
 
     private void Start()
@@ -44,5 +45,12 @@ public class EmptyTechCell : MonoBehaviour
     private void OnMouseEnter()
     {
         board.SetCurrentCell(this);
+    }
+
+    public void ReceiveTechSegment(TechPieceSegment segment)
+    {
+        if (Occupied) return;
+
+        Occupied = true;
     }
 }

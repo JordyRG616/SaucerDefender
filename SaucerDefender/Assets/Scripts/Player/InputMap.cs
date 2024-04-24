@@ -17,6 +17,9 @@ public class InputMap : ScriptableObject
 
     public InputAction Board_HorizontalNavigation { get; private set; }
     public InputAction Board_VerticalNavigation { get; private set; }
+    public InputAction Board_Rotate { get; private set; }
+    public InputAction Board_Flip { get; private set; }
+    public InputAction Board_Place { get; private set; }
 
     public bool lockFireControls = false;
 
@@ -72,6 +75,15 @@ public class InputMap : ScriptableObject
         Board_VerticalNavigation = controls.Board.Vertical_Navigation;
         Board_VerticalNavigation.performed += GetBoardDirection;
         Board_VerticalNavigation.Enable();
+
+        Board_Rotate = controls.Board.Rotate;
+        Board_Rotate.Enable();
+
+        Board_Flip = controls.Board.Flip;
+        Board_Flip.Enable();
+
+        Board_Place = controls.Board.Place;
+        Board_Place.Enable();
     }
 
     public void GetBoardDirection(InputAction.CallbackContext callbackContext)

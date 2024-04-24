@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: forms_guide_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 227
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158fe73851053674888f096501743793
+      internalID: -2005596944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 137
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe331b96d9b6a6544be7ef4aa6d68c32
+      internalID: -164472064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f0cd931bb0dee41bde23cd3d79eb80
+      internalID: -202095362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_3
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f35ad5512fdbb848ad52d5401ff4105
+      internalID: 2030667108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_4
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 115
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15580be697e2a8648aacca314465bc11
+      internalID: 369904200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 227
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fc92a4efa626b48b0af252f52b11b4
+      internalID: -291727548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 227
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eeb46cc8b3324845b3118d0bb9450aa
+      internalID: 1456757454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 117
+        width: 120
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac85f7e187d12fa4bbf5d5cf68d5574c
+      internalID: 229273267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 7
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7b610e098e3ef46bafd6f81518d37d
+      internalID: 1261385839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forms_guide_9
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 167
+        width: 30
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a9bae66f8e8fe449f4f8eaa349b7a3
+      internalID: -1217637308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      forms_guide_0: -2005596944
+      forms_guide_1: -164472064
+      forms_guide_2: -202095362
+      forms_guide_3: 2030667108
+      forms_guide_4: 369904200
+      forms_guide_5: -291727548
+      forms_guide_6: 1456757454
+      forms_guide_7: 229273267
+      forms_guide_8: 1261385839
+      forms_guide_9: -1217637308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

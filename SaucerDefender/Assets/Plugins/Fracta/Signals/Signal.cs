@@ -29,6 +29,11 @@ public class Signal<T> : ISignal
         callback = action;
     }
 
+    public void Register(Action<T> action)
+    {
+        callback += action;
+    }
+
     public void Clear()
     {
         callback = null;
@@ -85,6 +90,11 @@ public class Signal : ISignal
     public void Set(Action action)
     {
         callback = action;
+    }
+
+    public void Register(Action action)
+    {
+        callback += action;
     }
 
     public void Clear()
