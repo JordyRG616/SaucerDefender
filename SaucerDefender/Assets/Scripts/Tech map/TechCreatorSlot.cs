@@ -19,7 +19,7 @@ public class TechCreatorSlot : MonoBehaviour, IPointerClickHandler
     {
         storedResearch = researchType;
 
-        icon.sprite = researchType.icon;
+        icon.sprite = researchType.techPiece;
         icon.color = Color.white;
 
         OnSamplePlaced.Fire();

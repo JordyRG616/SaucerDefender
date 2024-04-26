@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Exoanthropology
   m_EditorClassIdentifier: 
   requiredAmount: 100
+  techPiece: {fileID: 2031318946, guid: bfe205ae8a74210488e394d40cb6d01a, type: 3}
   icon: {fileID: -753401164, guid: f7d07f32486ea3145b362ef60e2afd97, type: 3}

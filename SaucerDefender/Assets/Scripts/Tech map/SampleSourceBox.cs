@@ -16,7 +16,7 @@ public class SampleSourceBox : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         var instance = Instantiate(dragableModel, transform.root);
 
-        instance.sprite = researchType.icon;
+        instance.sprite = researchType.techPiece;
 
         currentDragable = instance.transform as RectTransform;
         currentDragable.anchoredPosition = FractaMouse.Position;

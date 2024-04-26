@@ -21,7 +21,10 @@ public class InputMap : ScriptableObject
     public InputAction Board_Flip { get; private set; }
     public InputAction Board_Place { get; private set; }
 
+    public PlayerControls.CameraMapActions CameraMap { get; private set; }
+
     public bool lockFireControls = false;
+
 
     public void Initialize()
     {
@@ -84,6 +87,9 @@ public class InputMap : ScriptableObject
 
         Board_Place = controls.Board.Place;
         Board_Place.Enable();
+
+        CameraMap = controls.CameraMap;
+        CameraMap.Enable();
     }
 
     public void GetBoardDirection(InputAction.CallbackContext callbackContext)

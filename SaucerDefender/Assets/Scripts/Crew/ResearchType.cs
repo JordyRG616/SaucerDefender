@@ -6,5 +6,6 @@ using UnityEngine;
 public class ResearchType : ScriptableObject
 {
     public float requiredAmount;
+    public Sprite techPiece;
     public Sprite icon;
 }
